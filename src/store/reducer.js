@@ -1,16 +1,16 @@
-function reducer(store=[], action) {
+export function reducer(state=[], action) {
   switch (action.type) {
     case "create_todo":
-      return; //updated store
+      return; //updated state
     case "update_todo":
-      return; //updated store
+      return; //updated state
     case "remove_todo":
-      return; //updated store
+      return; //updated state
     case "change-status-todo":
-      return; //updated store
+      return; //updated state
 
     default:
-      return; // store
+      return; // state
   }
   /*
     if(action is create_todo){
