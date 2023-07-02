@@ -1,7 +1,9 @@
 export function reducer(state=[], action) {
+    // console.log(action.payload);
+    
   switch (action.type) {
     case "create_todo":
-      return; //updated state
+      return [...state, action.payload]; //updated state
     case "update_todo":
       return; //updated state
     case "remove_todo":
@@ -10,7 +12,7 @@ export function reducer(state=[], action) {
       return; //updated state
 
     default:
-      return; // state
+      return state;
   }
   /*
     if(action is create_todo){
