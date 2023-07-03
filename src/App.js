@@ -1,26 +1,26 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { createTodo, deleteTodo } from "./store/actions";
+import { createTodo, deleteTodo } from "./store/actions/todoactions";
 
 function App() {
   const dispatch = useDispatch();
-  const state = useSelector(store => store);
+  const state = useSelector((store) => store);
   // console.log(state);
 
   const handleClick = () => {
     dispatch(
       createTodo(
-        `${state.length +1}`,
-        `${state.length +1} Learn React Native`,
+        `${state.length + 1}`,
+        `${state.length + 1} Learn React Native`,
         "2023-Jul-01 20:30",
         "Learn the concepts of react"
       )
     );
   };
-  const handleDelete=(id)=>{
-    dispatch(deleteTodo(id))
-  }
+  const handleDelete = (id) => {
+    dispatch(deleteTodo(id));
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -42,8 +42,16 @@ function App() {
         >
           Add ToDo
         </button>
-        {state?.map((val, key)=>{
-          return <button key={key} style={{marginTop:'5px'}} onClick={()=>handleDelete(val.id)}>{val.task}</button>
+        {state?.map((val, key) => {
+          return (
+            <button
+              key={key}
+              style={{ marginTop: "5px" }}
+              onClick={() => handleDelete(val.id)}
+            >
+              {val.task}
+            </button>
+          );
         })}
       </header>
     </div>
