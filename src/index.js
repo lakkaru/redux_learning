@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
+import { createAction } from "./store/actions";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // console.log(store.getState());
-
 store.subscribe(() => {
   console.log(store.getState());
 });
@@ -22,7 +22,14 @@ store.subscribe(() => {
 //   },
 // });
 
-store.dispatch(createAction('01', "Learn React", "2023-Jul-01 20:30","Learn the concepts of react"));
+store.dispatch(
+  createAction(
+    "01",
+    "Learn React",
+    "2023-Jul-01 20:30",
+    "Learn the concepts of react"
+  )
+);
 // store.dispatch({
 //   type: "create_todo",
 //   payload: {
@@ -33,21 +40,17 @@ store.dispatch(createAction('01', "Learn React", "2023-Jul-01 20:30","Learn the 
 //     status: "notStarted",
 //   },
 // });
-store.dispatch(createAction('02', "Learn ReactJs", "2023-Jul-01 20:30","Learn the concepts of react"));
+store.dispatch(
+  createAction(
+    "02",
+    "Learn ReactJs",
+    "2023-Jul-01 20:30",
+    "Learn the concepts of react"
+  )
+);
 
 // console.log(store.getState());
-function createAction(id, task, dateTime, desc) {
-  return {
-    type: "create_todo",
-    payload: {
-      id,
-      task,
-      dateTime,
-      desc,
-      status: "notStarted",
-    },
-  };
-}
+
 
 root.render(
   <React.StrictMode>
