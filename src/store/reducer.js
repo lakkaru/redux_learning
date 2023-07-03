@@ -1,13 +1,17 @@
+import { CREATE_TODO, DELETE_TODO } from "./actions";
+
+
 export function reducer(state=[], action) {
     // console.log(action.payload);
     
   switch (action.type) {
-    case "CREATE_TODO":
+    case CREATE_TODO:
       return [...state, action.payload]; //updated state
     case "UPDATE_TODO":
       return; //updated state
-    case "REMOVE_TODO":
-      return; //updated state
+    case DELETE_TODO:
+      return state.filter(item=>item.id != action.payload); 
+      // return console.log( state.filter(item=>item.id != action.payload)); 
     case "CHANGE_STATUS_TODO":
       return; //updated state
 
