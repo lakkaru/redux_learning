@@ -1,7 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { createAction } from "./store/actions";
 
 function App() {
+  const dispatch = useDispatch();
+  const state = useSelector(store => store);
+  console.log(state);
+
+  const handleClick = () => {
+    dispatch(
+      createAction(
+        `${state.length +1}`,
+        `${state.length +1} Learn React Native`,
+        "2023-Jul-01 20:30",
+        "Learn the concepts of react"
+      )
+    );
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +33,12 @@ function App() {
         >
           Learn React
         </a>
+        <button
+          onClick={handleClick}
+          style={{ marginTop: "10px", padding: "5px" }}
+        >
+          Add ToDo
+        </button>
       </header>
     </div>
   );

@@ -4,58 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
-import { createAction } from "./store/actions";
+// import { createAction } from "./store/actions";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// console.log(store.getState());
-store.subscribe(() => {
-  console.log(store.getState());
-});
-// store.dispatch({
-//   type: "create_todo",
-//   payload: {
-//     id: "01",
-//     task: "Learn React",
-//     dateTime: "2023-Jul-01 20:30",
-//     desc: "Learn the concepts of react",
-//     status: "notStarted",
-//   },
-// });
-
-store.dispatch(
-  createAction(
-    "01",
-    "Learn React",
-    "2023-Jul-01 20:30",
-    "Learn the concepts of react"
-  )
-);
-// store.dispatch({
-//   type: "create_todo",
-//   payload: {
-//     id: "02",
-//     task: "Learn ReactJs",
-//     dateTime: "2023-Jul-01 20:30",
-//     desc: "Learn the concepts of react",
-//     status: "notStarted",
-//   },
-// });
-store.dispatch(
-  createAction(
-    "02",
-    "Learn ReactJs",
-    "2023-Jul-01 20:30",
-    "Learn the concepts of react"
-  )
-);
-
-// console.log(store.getState());
-
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
