@@ -1,6 +1,6 @@
-import { CREATE_TODO, DELETE_TODO } from "../actions/todoactions";
+import { CREATE_TODO, DELETE_TODO } from "../actions/todoActions";
 
-export default function todoreducer(state = [], action) {
+export default function todoReducer(state = [], action) {
   // console.log(action.payload);
 
   switch (action.type) {

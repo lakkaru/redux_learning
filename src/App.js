@@ -1,12 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { createTodo, deleteTodo } from "./store/actions/todoactions";
+import { createTodo, deleteTodo } from "./store/actions/todoActions";
+import { getUserList } from "./store/actions/userActions";
+
 
 function App() {
   const dispatch = useDispatch();
-  const state = useSelector((store) => store);
-  // console.log(state);
+  const state = useSelector((store) => store.todoReducer);
+  const userState = useSelector((store) => store.userReducer);
+
+  console.log(userState);
 
   const handleClick = () => {
     dispatch(
@@ -21,6 +25,12 @@ function App() {
   const handleDelete = (id) => {
     dispatch(deleteTodo(id));
   };
+
+  const handleUser=()=>{
+    // console.log('test');
+    
+    dispatch(getUserList())
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -41,6 +51,12 @@ function App() {
           style={{ marginTop: "10px", padding: "5px" }}
         >
           Add ToDo
+        </button>
+        <button
+          onClick={handleUser}
+          style={{ marginTop: "10px", padding: "5px" }}
+        >
+          Add user
         </button>
         {state?.map((val, key) => {
           return (
